@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Jomhuria&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jomhuria&display=swap');
+
+$font-family: 'Jomhuria',
+cursive;
+$numbers-font: 'Roboto',
+sans-serif;
+
+$bcg-color: #10e7dc;
+$select-bcg-color: rgb(194, 224, 252);
+$button-bcg-color: #254d72;
+$button-nav-bcg-color: rgb(109, 32, 32);
+$button-nav-bcg-color-opacity: rgba(109, 32, 32, 0.761);
+$choose-number-color: #4129df;
+$hard-number-color: rgb(49, 49, 49);
+$animation-color: #00f308;
+
+$font-color: #0074e1;
+$curtain-color: #366c9e;
+$correct-bcg-color: rgba(255, 255, 255, 0.734);
+
+$sudoku-board-width-and-height: 370px;
+$sudoku-board-border-color: #798591;
+$sudoku-board-border-light: 1px solid $sudoku-board-border-color;
+$sudoku-board-border-bold: 2px solid $sudoku-board-border-color;
+
+body {
+  background-color: $bcg-color;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 20px;
+}
+
+h1 {
+  font-weight: normal;
+  margin: 0;
+}
+
+.register,
+.login {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 50px auto;
+  width: 95vw;
+  max-width: 400px;
+  padding: 25px 20px;
+  border: 2px solid $sudoku-board-border-color;
+  background-color: white;
+
+  &__header {
+    flex-basis: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.7rem;
+    font-family: $numbers-font;
+    color: $button-bcg-color;
+  }
+
+  &__message {
+    line-height: 2;
+    color: rgb(182, 0, 0);
+    font-weight: bold;
+  }
+}
+
+.register__header {
+  color: $button-nav-bcg-color;
+}
+
+.input {
+  flex-basis: 100%;
+  outline: none;
+  padding: 5px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 2px solid $sudoku-board-border-color;
+  margin: 10px auto;
+  font-size: 1rem;
+}
+
+.login__buttons-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+//---interface---
+
+.container {
+  position: relative;
+  width: $sudoku-board-width-and-height;
+  margin: 0 auto;
+  height: $sudoku-board-width-and-height * 2;
+}
+
+.user {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user__name,
+.user__level {
+  padding: 20px 20px 0 20px;
+  color: $sudoku-board-border-color;
+  font-size: 0.9rem;
+  font-weight: bold;
+  font-family: $numbers-font;
+}
+
+.user__name {
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    color: $button-nav-bcg-color;
+  }
+}
+
+.user__level {
+  font-size: 0.8rem;
+  letter-spacing: -1px;
+  opacity: 0;
+}
+
+.interface {
+  box-sizing: border-box;
+  width: $sudoku-board-width-and-height;
+  background-color: $bcg-color;
+  z-index: 1;
+}
+
+.title {
+  text-align: center;
+  font-family: $font-family;
+  font-size: 5rem;
+  color: $font-color;
+  line-height: 0.7;
+  padding-top: 25px;
+}
+
+.select-board {
+  width: $sudoku-board-width-and-height - 40;
+  margin: 40px auto;
+}
+
+.select-board__header {
+  text-align: center;
+  font-family: $numbers-font;
+  font-weight: normal;
+  font-size: 1.2rem;
+  color: $sudoku-board-border-color;
+}
+
+.select-board__level-container {
+  position: relative;
+  margin: 25px auto;
+  border: 2px solid $sudoku-board-border-color;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 15px 0;
+}
+
+.select-board__level-header {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 5px;
+  font-family: $numbers-font;
+  font-size: 0.8rem;
+  font-weight: normal;
+  color: $sudoku-board-border-color;
+  background-color: $bcg-color;
+  z-index: 1;
+}
+
+.select-board__level-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $numbers-font;
+  width: 40px;
+  height: 40px;
+  font-size: 1.3rem;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background-color: $button-bcg-color;
+  color: white;
+  cursor: pointer;
+  padding-top: 1px;
+  padding-left: 1px;
+}
+
+.select-board__level-number--padding {
+  padding-right: 2px;
+}
+
+//---curtains---
+.curtain {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: 4;
+}
+
+.curtain__left {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  transform: translateX(-100%);
+  width: 110%;
+  background-color: darken($curtain-color, 10);
+  transition: 1s;
+  z-index: 4;
+}
+
+.curtain__right {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  transform: translateX(100%);
+  width: 110%;
+  background-color: $curtain-color;
+  transition: 1s;
+  z-index: 4;
+}
+
+.inactive {
+  background-color: $sudoku-board-border-color;
+}
+
+//---sudoku---
+.sudoku {
+  display: none;
+  text-align: center;
+  overflow: hidden;
+  height: $sudoku-board-width-and-height * 2;
+  transition: 1s;
+}
+
+.sudoku__header {
+  text-align: center;
+  font-family: $font-family;
+  font-size: 5rem;
+  color: $font-color;
+  line-height: 0.5;
+  margin-top: 25px;
+}
+
+.sudoku__board {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  width: $sudoku-board-width-and-height;
+  height: $sudoku-board-width-and-height;
+}
+
+.sudoku__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $sudoku-board-width-and-height / 10;
+  height: $sudoku-board-width-and-height / 10;
+  font-family: $numbers-font;
+  font-size: 1.4rem;
+  color: $hard-number-color;
+  cursor: pointer;
+  background-color: white;
+}
+
+.sudoku__item--user {
+  color: $choose-number-color;
+}
+
+.sudoku__item--selected {
+  background-color: $select-bcg-color;
+}
+
+.sudoku__item--border-right {
+  border-right: $sudoku-board-border-light;
+}
+
+.sudoku__item--border-bottom {
+  border-bottom: $sudoku-board-border-light;
+}
+
+.sudoku__item--bold-border-top {
+  border-top: $sudoku-board-border-bold;
+}
+
+.sudoku__item--bold-border-right {
+  border-right: $sudoku-board-border-bold;
+}
+
+.sudoku__item--bold-border-bottom {
+  border-bottom: $sudoku-board-border-bold;
+}
+
+.sudoku__item--bold-border-left {
+  border-left: $sudoku-board-border-bold;
+}
+
+.sudoku__numbers {
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+  width: $sudoku-board-width-and-height - 20;
+}
+
+.sudoku__number {
+  cursor: pointer;
+  font-weight: bold;
+  font-family: $numbers-font;
+  font-size: 1.5rem;
+  font-weight: normal;
+  border-radius: 50%;
+  padding: 2px 11px;
+  background-color: $button-bcg-color;
+  color: white;
+}
+
+.animation {
+  transition: 0.3s ease-in-out;
+  background-color: $animation-color;
+}
+
+.sudoku__btns-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px auto;
+  width: $sudoku-board-width-and-height;
+}
+
+.sudoku__btn-remove-wrapper {
+  flex-basis: 100%;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.sudoku__correct {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: $correct-bcg-color;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 1s;
+  z-index: 2;
+}
+
+.sudoku__dorrect-txt {
+  flex-basis: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.sudoku__btn-next {
+  background-color: $button-bcg-color;
+}
+
+//---buttons---
+
+.button {
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  background-color: $button-nav-bcg-color;
+  color: white;
+  padding: 8px 20px;
+  margin: 0 5px;
+  font-size: 1.1rem;
+}
+
+.login__submit,
+.register__submit {
+  margin-top: 10px;
+}
+
+.login__submit {
+  background-color: $button-bcg-color;
+}
+
+.login__redirect-to-login {
+  font-family: $numbers-font;
+  margin-top: 15px;
+  text-decoration: none;
+}
+
+.save-message {
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  background-color: $button-nav-bcg-color-opacity;
+  padding: 15px 0;
+  color: white;
+  text-align: center;
+  font-family: $numbers-font;
+  font-size: 1.2rem;
+  transition: 0.2s ease-out;
+  z-index: 5;
+  opacity: 0;
+}
+
+.sudoku__btn-remove {
+  background-color: $button-bcg-color;
+  font-size: 1.3rem;
+}
