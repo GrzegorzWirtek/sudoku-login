@@ -139,14 +139,16 @@ class Methods{
     };
   };
   writeNumber(e, currentlySelected, selecteditemClass){
+    let currentNumber = '-';
     if(currentlySelected){
       let isFieldEmpty = true;
       if(currentlySelected.textContent !== '') isFieldEmpty = false
       if(e.target.classList.contains('sudoku__number')){
         currentlySelected.textContent = e.target.textContent;
+        currentNumber = parseInt(currentlySelected.textContent);
       }
       currentlySelected.classList.remove(selecteditemClass);
-      return { isFieldEmpty: isFieldEmpty, index: currentlySelected.dataset.index, number: parseInt(currentlySelected.textContent) };
+      return { isFieldEmpty: isFieldEmpty, index: currentlySelected.dataset.index, number: currentNumber };
     };
   };
   removeNumber(e, currentlySelected, btnRemoveClass, selectedClass){
