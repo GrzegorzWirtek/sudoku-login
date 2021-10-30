@@ -142,7 +142,9 @@ class Methods{
     if(currentlySelected){
       let isFieldEmpty = true;
       if(currentlySelected.textContent !== '') isFieldEmpty = false
-      currentlySelected.textContent = e.target.textContent;
+      if(e.target.classList.contains('sudoku__number')){
+        currentlySelected.textContent = e.target.textContent;
+      }
       currentlySelected.classList.remove(selecteditemClass);
       return { isFieldEmpty: isFieldEmpty, index: currentlySelected.dataset.index, number: parseInt(currentlySelected.textContent) };
     };

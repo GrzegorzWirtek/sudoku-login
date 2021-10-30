@@ -24,6 +24,7 @@ class Sudoku{
     this.inactiveBoards = null;
 
     this.id = window.location.href.substr(32, 24);
+    // this.id = window.location.href.substr(22, 24);
 
     this.el.getElement(this.el.saveButtonClass).addEventListener('click', (e) => this.saveGame(true));
     this.el.getElement(this.el.backButtonClass).addEventListener('click', (e) => this.backToInterface());

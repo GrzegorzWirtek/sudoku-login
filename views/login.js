@@ -4,6 +4,7 @@ const redirectButton = document.querySelector('.login__redirect-to-login');
 
 function goTonextSite(id){
   window.location = `https://sudoku-gw.herokuapp.com/${id}`;
+  // window.location = `http://localhost:3000/${id}`;
 };
 
 function redirectSite(data){
