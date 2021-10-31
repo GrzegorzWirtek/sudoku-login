@@ -1,11 +1,14 @@
 const loginForm = document.querySelector('.login');
 const loginMessage = document.querySelector('.login__message');
-const redirectButton = document.querySelector('.login__redirect-to-login');
+const redirectA = document.querySelector('.login__redirect-to-login');
 
 function goTonextSite(id){
-  // window.location = `https://sudoku-gw.herokuapp.com/${id}`;
     window.location = `${window.location.origin}/${id}`;
 };
+
+function goToRegister(){
+  redirectA.href = `${window.location.origin}/register`;
+}
 
 function redirectSite(data){
   loginMessage.textContent = '';
@@ -31,4 +34,5 @@ function goToLogin(e){
   .then(data=>redirectSite(data))
 };
 
-loginForm.addEventListener('submit', goToLogin)
+loginForm.addEventListener('submit', goToLogin);
+redirectA.addEventListener('click', goToRegister)

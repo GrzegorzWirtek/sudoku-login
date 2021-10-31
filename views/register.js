@@ -4,7 +4,7 @@ const registerMessage = document.querySelector('.register__message');
 function redirectSite({success, message}){
   registerMessage.textContent = '';
   if(success){
-    window.location = 'https://sudoku-gw.herokuapp.com/';
+    window.location = window.location.origin;
   }else{
     registerMessage.textContent = message;
   }
