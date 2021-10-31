@@ -3,8 +3,8 @@ const loginMessage = document.querySelector('.login__message');
 const redirectButton = document.querySelector('.login__redirect-to-login');
 
 function goTonextSite(id){
-  window.location = `https://sudoku-gw.herokuapp.com/${id}`;
-  // window.location = `http://localhost:3000/${id}`;
+  // window.location = `https://sudoku-gw.herokuapp.com/${id}`;
+    window.location = `${window.location.origin}/${id}`;
 };
 
 function redirectSite(data){
