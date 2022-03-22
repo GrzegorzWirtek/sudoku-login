@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js"
   },
-  "author": "",
+  "author": "Grzegorz Wirtek",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
