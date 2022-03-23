@@ -12,6 +12,10 @@ The project was made as part of learning to create CRUD application and build ga
 
 Project is created with:
 
+- **HTML5**
+- **CSS**
+- **SASS/SCSS**
+- **JavaScript**
 - **node** version 14.18.1
 - **express** version 4.17.1
 - **mongoose** version 6.0.12
