@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="container">
+        <p class="save-message">Zapisano</p>
+        <section class="user">
+            <p class="user__level">Level: Easy 1</p>
+            <p class="user__name"></p>
+        </section>
+        <section class="curtain">
+            <div class="curtain__left"></div>
+            <div class="curtain__right"></div>
+        </section>
+        <section class="interface">
+            <header class="interface-header">
+                <h1 class="title">Sudoku</h1>
+            </header>
+            <article class="select-board">
+                <h2 class="select-board__header">Select level</h2>
+                <div class="select-board__level-container">
+                    <h3 class="select-board__level-header">Easy</h3>
+                    <div class="select-board__level-number one">1</div>
+                    <div class="select-board__level-number">2</div>
+                    <div class="select-board__level-number">3</div>
+                    <div class="select-board__level-number">4</div>
+                </div>
+                <div class="select-board__level-container">
+                    <h3 class="select-board__level-header">Medium</h3>
+                    <div class="select-board__level-number">5</div>
+                    <div class="select-board__level-number">6</div>
+                    <div class="select-board__level-number">7</div>
+                    <div class="select-board__level-number">8</div>
+                </div>
+                <div class="select-board__level-container">
+                    <h3 class="select-board__level-header">Hard</h3>
+                    <div class="select-board__level-number">9</div>
+                    <div class="select-board__level-number select-board__level-number--padding">10</div>
+                    <div class="select-board__level-number select-board__level-number--padding">11</div>
+                    <div class="select-board__level-number select-board__level-number--padding">12</div>
+                </div>
+            </article>
+        </section>
+
+        <div class="sudoku__correct">
+            <div class="sudoku__correct-txt-wraper">
+                <h2 class="sudoku__dorrect-txt">Correct!</h2>
+                <button class="button sudoku__btn-next">Next sudoku</button>
+            </div>
+        </div>
+        <section class="sudoku">
+            <h1 class="sudoku__header">Sudoku</h1>
+            <div class="sudoku__board"></div>
+            <div class="sudoku__numbers"></div>
+            <div class="sudoku__btn-remove-wrapper"></div>
+            <div class="sudoku__btns-wrapper">
+                <button class="button sudoku__btn-save">Save</button>
+                <button class="button sudoku__btn-back">Back to interface</button>
+            </div>
+        </section>
+    </main>
+    <script src="index.js" type='module'></script>
+</body>
+
+</html>
