@@ -2,7 +2,7 @@
 
 Sudoku application that allows user to create an account and save changes.
 
-Visit site: **[Sudoku with login](https://sudoku-with-login.herokuapp.com/)**
+Visit site: **[Sudoku with login](https://sudoku-login.vercel.app/)**
 
 ## General info
 
@@ -23,7 +23,7 @@ Project is created with:
 
 ## Setup
 
-Page is deployed to Heroku: **[Sudoku with login](https://sudoku-with-login.herokuapp.com/)**
+Page is deployed to Heroku: **[Sudoku with login](https://sudoku-login.vercel.app/)**
 
 The project can be also run locally using npm (localhost:3000):
 
