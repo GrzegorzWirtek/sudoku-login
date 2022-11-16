@@ -2,7 +2,8 @@
   "name": "18-logowanie-do-sudoku-2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.mjs",
+  "main": "index.cjs",
+  "type": "module",
   "engines":{
     "node": "14.x"
  },

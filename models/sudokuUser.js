@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const sudokuUserSchema = new Schema({
@@ -41,4 +41,4 @@ const sudokuUserSchema = new Schema({
 	inactiveBoards: { type: Array, default: [] },
 });
 
-module.exports = mongoose.model('users', sudokuUserSchema);
+export default mongoose.model('users', sudokuUserSchema);
